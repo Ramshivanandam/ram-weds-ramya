@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ram ❤ Ramya – Wedding Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #f8f1e4;
+      --cream2: #f4ead8;
+      --cream3: #efe3cc;
+      --surface: #fffaf2;
+      --brown: #8d5b2a;
+      --dark-brown: #4b1f1f;
+      --green: #2f6b4f;
+      --gold: #c9903a;
+      --gold-light: #f5d6a1;
+    }
+
+    html, body { height: 100%; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--dark-brown);
+      overflow-x: hidden;
+    }
+
+    /* ── PETALS ── */
+    #petalCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── LANG TOGGLE ── */
+    .lang-toggle {
+      position: fixed;
+      top: 18px; right: 18px;
+      display: flex; align-items: center; gap: 10px;
+      z-index: 5000;
+      background: rgba(255,250,242,0.92);
+      border: 1px solid rgba(141,91,42,0.25);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      user-select: none;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(75,31,31,0.12);
+    }
+    .lang-toggle span { cursor: pointer; transition: color 0.3s; }
+    .lang-toggle span:hover { color: var(--brown); }
+    .switch {
+      width: 44px; height: 22px;
+      background: var(--gold-light);
+      border-radius: 25px;
+      position: relative; cursor: pointer; transition: 0.3s;
+    }
+    .switch .slider {
+      width: 20px; height: 20px;
+      background: var(--brown);
+      border-radius: 50%;
+      position: absolute; top: 1px; left: 1px; transition: 0.3s;
+    }
+    .lang-toggle.tamil .slider { left: 23px; }
+
+/* Eyebrow line — "The Union of" */
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  color: #e8a87c;                          /* warm terracotta */
+  opacity: 0;
+  animation: driftIn 1.2s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* Main names — "Ram ❤ Ramya" */
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(3.8rem, 10vw, 7.5rem);
+  font-weight: 700;
+  color: #f5d6a1;                          /* warm gold */
+  line-height: 1.0;
+  letter-spacing: -1px;
+  opacity: 0;
+  animation: riseUp 1.4s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
+}
+
+
+/* Subtitle — "A Celebration of Love" */
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  font-weight: 300;
+  color: #9fdea1;                          /* soft sage green */
+  letter-spacing: 0.08em;
+  opacity: 0;
+  animation: fadeSlide 1.2s ease 1.1s forwards;
+}
+
+/* Date pills */
+.hero-date-pill {
+  opacity: 0;
+  animation: fadeSlide 1s ease 1.4s forwards;
+}
+
+/* Buttons */
+.hero-btns {
+  opacity: 0;
+  animation: fadeSlide 1s ease 1.7s forwards;
+}
+
+/* ── Keyframes ── */
+@keyframes driftIn {
+  from { opacity: 0; transform: translateX(-30px) rotate(-2deg); }
+  to   { opacity: 1; transform: translateX(0) rotate(0deg); }
+}
+
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(50px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      background:
+      linear-gradient(rgba(0, 0, 0, 0.191), rgba(0,0,0,0.5)),   /* dark overlay */
+        radial-gradient(circle at 30% 40%, rgba(141,91,42,0.08), transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(47,107,79,0.08), transparent 50%),
+        #f5f5f5 url('Ccs-736.jpg') no-repeat center center / cover;
+      position: relative;
+      padding: 40px 20px;
+    }
+
+    .hero-ornament {
+      position: absolute;
+      opacity: 0.18;
+      animation: slowSpin 22s linear infinite;
+    }
+    .hero-ornament.top-left  { top: 40px; left: 40px; width: 130px; }
+    .hero-ornament.bot-right { bottom: 40px; right: 40px; width: 110px; animation-direction: reverse; }
+
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .hero-content { position: relative; z-index: 2; animation: fadeUp 1.4s ease both; }
+
+    /* .kolam-symbol {
+      font-size: 2.2rem;
+      color: var(--green);
+      display: block;
+      margin-bottom: 12px;
+      animation: fadeUp 1s ease 0.2s both;
+    } */
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: #f5d6a1;
+      letter-spacing: 1px;
+      animation: fadeUp 1s ease 0.3s both;
+    }
+
+    .heart-sep {
+      color: #f70303;
+      font-size: 0.7em;
+      display: inline-block;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      50%      { transform: scale(1.25); }
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 3vw, 1.45rem);
+      color: var(--green);
+      margin-top: 12px;
+      animation: fadeUp 1s ease 0.45s both;
+    }
+
+    .hero-divider {
+      display: flex; align-items: center; gap: 14px;
+      justify-content: center; margin: 22px 0;
+      animation: fadeUp 1s ease 0.55s both;
+    }
+    .hero-divider::before, .hero-divider::after {
+      content: "";
+      height: 1px; width: 70px;
+      background: linear-gradient(90deg, transparent, rgba(141,91,42,0.6), transparent);
+    }
+    .hero-divider span { color: var(--brown); font-size: 1.1rem; }
+
+    .hero-date-pill {
+      display: inline-block;
+   background: rgba(245, 214, 161, 0.2);  /* semi-transparent gold */
+  color: #f5d6a1;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      padding: 8px 22px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(245, 214, 161, 0.5);
+  backdrop-filter: blur(6px);
+      animation: fadeUp 1s ease 0.65s both;
+    }
+ 
+  
+
+    .hero-btns {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 1s ease 0.8s both;
+    }
+
+    .btn-primary {
+      padding: 13px 30px;
+      background: rgba(245, 214, 161, 0.2);  /* semi-transparent gold */
+      color: #f5d6a1;
+      border: 1px solid rgba(245, 214, 161, 0.5);
+      backdrop-filter: blur(6px);
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+      box-shadow: 0 6px 24px rgba(141,91,42,0.3);
+    }
+    .btn-primary:hover { background: #f5d6a1;
+  color: var(--dark-brown); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(75,31,31,0.25); }
+
+    .btn-secondary {
+      padding: 13px 28px;
+      background: rgba(245, 214, 161, 0.2);  /* semi-transparent gold */
+      color: #f5d6a1;
+      border: 1px solid rgba(245, 214, 161, 0.5);
+      backdrop-filter: blur(6px);
+      /* background: transparent;
+       border-color: #f5d6a1;
+  color: #f5d6a1;
+      border: 1.5px solid var(--green); */
+      cursor: pointer;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: transform 0.25s, background 0.25s, color 0.25s;
+    }
+    .btn-secondary:hover { background: #f5d6a1;
+  color: #4b1f1f; transform: translateY(-2px); }
+
+    /* ── QUICK DETAILS BAND ── */
+    /* .details-band {
+      background: var(--dark-brown);
+      color: var(--gold-light);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .details-band-inner {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px;
+    }
+    .detail-item { }
+    .detail-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-bottom: 6px;
+      color: var(--gold-light);
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .detail-sub {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 4px;
+    } */
+
+    .details-band {
+      background: var(--dark-brown);
+      color: var(--gold-light);
+      padding: 32px 20px;
+      text-align: center;
+    }
+.details-band-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cd-divider {
+  width: 1px;
+  height: 80px;
+  background: rgba(245, 214, 161, 0.25);
+  flex-shrink: 0;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.cd-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 48px;
+}
+
+.cd-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f5d6a1;
+  line-height: 1;
+}
+
+.cd-unit {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+.cd-sep {
+  font-size: 1.4rem;
+  color: rgba(245, 214, 161, 0.4);
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+    /* ── INVITATION CARD ── */
+    .invite-section {
+      max-width: 960px;
+      margin: 64px auto;
+      padding: 0 20px;
+    }
+
+    .temple-card {
+      background: var(--surface);
+      border: 1px solid rgba(141,91,42,0.2);
+      border-radius: 32px;
+      box-shadow: 0 20px 70px rgba(75,31,31,0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    .temple-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(141,91,42,0.12);
+      border-radius: 22px;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 2;
+      padding: 48px 40px;
+      display: grid;
+      gap: 48px;
+    }
+    @media(min-width: 700px) {
+      .card-inner { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+
+    .card-blessing {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    .card-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--dark-brown);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .card-message {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--dark-brown);
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 24px;
+    }
+    .card-family {
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .info-grid { display: grid; gap: 16px; }
+
+    .info-box {
+      background: rgba(248,241,228,0.8);
+      border: 1px solid rgba(141,91,42,0.16);
+      border-radius: 20px;
+      padding: 18px 20px;
+    }
+    .info-box-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 6px;
+    }
+    .info-box-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark-brown);
+    }
+    .info-box-sub { font-size: 0.82rem; opacity: 0.7; margin-top: 4px; }
+
+    .directions-btn {
+      display: inline-flex;
+      align-items: center; gap: 8px;
+      margin-top: 10px;
+      background: var(--brown);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .directions-btn:hover { background: var(--dark-brown); transform: translateY(-1px); }
+
+    /* ── SCHEDULE ── */
+    .schedule-section {
+      max-width: 780px;
+      margin: 0 auto 64px;
+      padding: 0 20px;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .section-heading .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--green);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .section-heading h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--dark-brown);
+    }
+
+    .schedule-day {
+      background: var(--surface);
+      border: 1px solid rgba(141,91,42,0.18);
+      border-radius: 24px;
+      padding: 28px 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 30px rgba(75,31,31,0.07);
+    }
+    .day-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .day-badge {
+      background: var(--brown);
+      color: #fff;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .day-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark-brown);
+    }
+
+    .event-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(141,91,42,0.1);
+    }
+    .event-row:last-child { border-bottom: none; }
+    .event-time {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--brown);
+      min-width: 80px;
+      padding-top: 2px;
+    }
+    .event-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      border: 2px solid var(--brown);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .event-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark-brown);
+      line-height: 1.3;
+    }
+    .event-desc { font-size: 0.8rem; opacity: 0.65; margin-top: 2px; }
+
+    /* ── ACTION BUTTONS ── */
+    .action-section {
+      text-align: center;
+      padding: 20px 20px 64px;
+    }
+    .action-section p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--dark-brown);
+      opacity: 0.8;
+      margin-bottom: 28px;
+    }
+    .action-btns {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px;
+      background: #25d366;
+      color: #fff;
+      border: none; cursor: pointer; text-decoration: none;
+      border-radius: 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+    }
+    /* display: inline-flex;
+      align-items: center; gap: 8px;
+      margin-top: 10px;
+      background: var(--brown);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s; */
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35); }
+
+    .btn-calendar {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px;
+      background: var(--green);
+      color: #fff;
+      border: none; cursor: pointer;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(47,107,79,0.28);
+    }
+    .btn-calendar:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(47,107,79,0.32); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark-brown);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+    footer .foot-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 4000;
+      background: rgba(30,10,0,0.6);
+      backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: var(--surface);
+      border-radius: 28px;
+      max-width: 680px;
+      width: 92%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 40px 36px;
+      position: relative;
+      border: 1px solid rgba(141,91,42,0.2);
+      box-shadow: 0 30px 80px rgba(30,10,0,0.3);
+      animation: modalIn 0.35s ease both;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none; border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--brown);
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--dark-brown); }
+
+    /* ── LOTUSE DIVIDER ── */
+    .lotus-div {
+      display: flex; align-items: center; gap: 14px;
+      justify-content: center;
+      margin: 24px 0;
+    }
+    .lotus-div::before, .lotus-div::after {
+      content: "";
+      height: 1px; flex: 1; max-width: 80px;
+      background: linear-gradient(90deg, transparent, rgba(141,91,42,0.5), transparent);
+    }
+    .lotus-div span { color: var(--brown); font-size: 1rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── TAMIL FONT ── */
+    .ta { font-family: 'Poppins', sans-serif; }
+
+    @media(max-width: 600px) {
+      .card-inner { padding: 32px 22px; }
+      .schedule-day { padding: 22px 18px; }
+      .modal-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+<audio id="bgMusic" loop>
+    <source src="" type="audio/mpeg">
+</audio>
+<!-- Petal Canvas -->
+<canvas id="petalCanvas"></canvas>
+
+<!-- Lang Toggle -->
+<div id="langToggle" class="lang-toggle">
+  <span id="toggleEn" onclick="switchLang()">EN</span>
+  <div class="switch" onclick="switchLang()">
+    <div class="slider"></div>
+  </div>
+  <span id="toggleTa" onclick="switchLang()">தமிழ்</span>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <svg class="hero-ornament top-left" viewBox="0 0 120 120" fill="none">
+    <circle cx="60" cy="60" r="42" stroke="rgba(141,91,42,0.8)" stroke-width="1.2"/>
+    <circle cx="60" cy="60" r="52" stroke="rgba(47,107,79,0.6)" stroke-width="1"/>
+    <path d="M60 18C65 34 78 42 94 46C78 50 65 58 60 74C55 58 42 50 26 46C42 42 55 34 60 18Z" fill="rgba(141,91,42,0.7)"/>
+    <path d="M102 60C86 65 78 78 74 94C70 78 62 65 46 60C62 55 70 42 74 26C78 42 86 55 102 60Z" fill="rgba(47,107,79,0.6)"/>
+  </svg>
+  <svg class="hero-ornament bot-right" viewBox="0 0 120 120" fill="none">
+    <circle cx="60" cy="60" r="40" stroke="rgba(141,91,42,0.8)" stroke-width="1.2"/>
+    <path d="M60 24C68 38 82 46 96 60C82 68 68 82 60 96C52 82 38 68 24 60C38 46 52 38 60 24Z" fill="rgba(141,91,42,0.6)"/>
+    <circle cx="60" cy="60" r="8" fill="rgba(47,107,79,0.5)"/>
+  </svg>
+
+  <div class="hero-content">
+  <span class="hero-eyebrow" id="heroEyebrow">The Union of</span>
+  <h1 id="heroTitle">Ram <span class="heart-sep">❤</span> Ramya</h1>
+  <p class="hero-sub" id="heroSub">A Celebration of Love</p>
+  <div class="hero-divider"><span>✦</span></div>
+  <div class="hero-date-pill" id="heroPill">18 JUNE 2026 · CHENNAI</div>
+  <div class="hero-date-pill" id="heroPill2">21 JUNE 2026 · RAMANATHAPURAM</div>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="openModal()">View Invitation</button>
+    <button class="btn-secondary" onclick="scrollToSchedule()">See Schedule</button>
+  </div>
+</div>
+</div>
+
+<!-- ── QUICK DETAILS BAND ── -->
+<div class="details-band">
+  <div style="text-align:center;">
+    <div class="detail-label" id="lblWeddingCount">We're counting down the beginning of our greatest adventure</div>
+    <div class="countdown">
+      <div class="cd-box"><span class="cd-num" id="wDays">00</span><span class="cd-unit" id="wDaysL">Days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="cd-num" id="wHours">00</span><span class="cd-unit" id="wHoursL">Hrs</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="cd-num" id="wMins">00</span><span class="cd-unit" id="wMinsL">Mins</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="cd-num" id="wSecs">00</span><span class="cd-unit" id="wSecsL">Secs</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── INVITATION CARD ── -->
+<!-- <div class="invite-section fade-in">
+  <div class="temple-card">
+    <div class="card-inner">
+      LEFT
+      <div>
+        <p class="card-blessing" id="cardBlessing">✦ With the Blessings of Our Families ✦</p>
+        <div class="lotus-div"><span>🪷</span></div>
+        <h2 class="card-names" id="cardNames">Ram<br>&amp; Ramya</h2>
+        <p class="card-message" id="cardMessage">
+          Together with our families, we cordially invite you to witness and celebrate the sacred union of our hearts as we embark on a lifetime of love and companionship.
+        </p>
+        <p class="card-family" id="cardFamily">Together with the Shivanandam &amp; Sethu Families</p>
+      </div>
+      <!-- RIGHT -->
+      <!-- <div class="info-grid"> -->
+        <!-- <div class="info-box">
+          <div class="info-box-label" id="lblRecp">Reception</div>
+          <div class="info-box-value" id="infoRecp">June 17,18</div>
+          <div class="info-box-sub" id="infoTime">Muhurtam at 7:30 AM</div>
+          <div class="info-box-sub" id="infoRecpTime">Evening celebration with family &amp; friends</div>
+          <div class="info-box-label" id="lblVenue2">Venue</div>
+          <div class="info-box-value" id="infoVenue">M Weddings &amp; Conventions</div>
+          <div class="info-box-sub" id="infoAddress">Chennai</div>
+          <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=M+CONVENTIONS+Chennai" target="_blank" id="directionsLink">
+            📍 Get Directions
+          </a>
+        </div> -->
+
+        <!-- <div class="info-box">
+          <div class="info-box-label" id="lblDate">Date</div>
+          <div class="info-box-value" id="infoDate">Thursday, 18 June 2026</div>
+          <div class="info-box-sub" id="infoTime">Muhurtam at 7:30 AM</div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-box-label" id="lblVenue2">Venue</div>
+          <div class="info-box-value" id="infoVenue">M Weddings &amp; Conventions</div>
+          <div class="info-box-sub" id="infoAddress">Chennai</div>
+          <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=M+CONVENTIONS+Chennai" target="_blank" id="directionsLink">
+            📍 Get Directions
+          </a>
+        </div> -->
+        
+      <!-- </div>
+    </div>
+  </div> -->
+<!-- </div> -->
+
+<!-- ── SCHEDULE ── -->
+ 
+<div class="schedule-section fade-in" id="scheduleSection">
+  <div class="section-heading">
+    <span class="eyebrow" id="schedEyebrow" style="margin-top:24px;">Programme of Events</span>
+    <h2 id="schedHeading">Wedding Schedule</h2>
+  </div>
+
+  <!-- Reception Day -->
+  <div class="schedule-day">
+    <div class="day-header">
+      <span class="day-badge" id="day1Badge">Day 1</span>
+      <span class="day-date" id="day1Date">Wednesday, 17 June 2026 — Reception</span>
+    </div>
+    <div class="event-row">
+      <span class="event-time">2:00 PM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e1n1">Mapillai azhaippu</div>
+        <div class="event-desc" id="e1d1"> is a traditional pre-wedding or wedding-day ritual in South Indian (specifically Tamil) Hindu weddings. It marks the grand ceremonial arrival of the groom and his family to the wedding venue, where the bride's family officially welcomes them with music, aarti, and garlands as a gesture of honor.</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <span class="event-time">3:00 PM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e1n2">Engagement</div>
+        <div class="event-desc" id="e1d2">The joyful celebration marking the beginning of our journey toward marriage. 💍❤️</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <span class="event-time">6:30 PM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e1n3">Reception Ceremony</div>
+        <div class="event-desc" id="e1d3">An evening of celebration, joy, and togetherness with family and friends. ✨</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <span class="event-time">7:30 PM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e1n4">Dinner</div>
+        <div class="event-desc" id="e1d4">Grand feast with family &amp; friends</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wedding Day -->
+  <div class="schedule-day">
+    <div class="day-header">
+      <span class="day-badge" id="day2Badge">Day 2</span>
+      <span class="day-date" id="day2Date">Thursday, 18 June 2026 — Wedding</span>
+    </div>
+    <div class="event-row">
+      <span class="event-time">7:30 AM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e2n3">Muhurtham ✦</div>
+        <div class="event-desc" id="e2d3">The auspicious moment — tying of the thali</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <span class="event-time">8:30 AM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e2n4">Breakfast Reception</div>
+        <div class="event-desc" id="e2d4">Traditional South Indian breakfast feast</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Wedding Reception -->
+  <div class="schedule-day">
+    <div class="day-header">
+      <span class="day-badge" id="day3Badge">Day 3</span>
+      <span class="day-date" id="day3Date">Sunday, 21 June 2026 — Post Wedding Reception</span>
+    </div>
+    <div class="event-row">
+      <span class="event-time">6:00 PM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e3n1">Post wedding Reception</div>
+        <div class="event-desc" id="e3d1">An evening of celebration, joy, and togetherness with family and friends. ✨</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <span class="event-time">7:30 PM</span>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-name" id="e3n2">Dinner</div>
+        <div class="event-desc" id="e3d2">Grand feast with family &amp; friends</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ACTION BUTTONS ── -->
+<div class="action-section fade-in">
+  <p id="actionMsg">As time unfolds, we look forward to celebrating our forever with you.</p>
+  <div class="action-btns">
+    <button class="btn-calendar" onclick="addToCalendar()" id="calendarBtn">
+      📅 Save the Date
+    </button>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="foot-names" id="footNames">Ram Weds Ramya</span>
+  18 June 2026 · M Conventions, Chennai · Designed with ❤
+</footer>
+
+<!-- ── INVITATION MODAL ── -->
+<div class="modal-overlay" id="inviteModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <div style="text-align:center; margin-bottom: 24px;">
+      <p style="font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--green); margin-bottom: 10px;" id="mBlessing">✦ With the Blessings of Our Families ✦</p>
+      <div class="lotus-div"><span>🪷</span></div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,6vw,3.4rem); font-weight:700; color:var(--dark-brown); line-height:1.1;" id="mNames">Ram &amp; Ramya</h2>
+      <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; opacity:0.8; margin-top:10px; line-height:1.7;" id="mMessage">Together with our families, we cordially invite you to witness and celebrate the sacred union of our hearts as we embark on a lifetime of love and companionship.</p>
+    </div>
+
+    <div style="display:grid; gap:14px; margin-bottom: 24px;">
+      <div class="info-box">
+        <div class="info-box-label" id="mLblRecp">Reception</div>
+        <div class="info-box-value">17 June 2026</div>
+        <div class="info-box-sub" id="mRecpSub">6:30 PM Onwards · M Conventions, Chennai</div>
+      </div>
+      <div class="info-box">
+        <div class="info-box-label" id="mLblWed">Wedding</div>
+        <div class="info-box-value">18 June 2026</div>
+        <div class="info-box-sub" id="mWedSub">Muhurtam at 7:30 AM · M Conventions, Chennai</div>
+      </div>
+      <!-- Schedule Summary -->
+    <div style="background:rgba(141,91,42,0.06); border:1px solid rgba(141,91,42,0.15); border-radius:16px; padding:18px 20px; margin-bottom:24px;">
+      <p style="font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--brown); margin-bottom:14px;" id="mSchedLabel1">Reception Ceremony . 17 June</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; gap:12px; align-items:center;">
+          <span style="font-size:0.78rem; font-weight:600; color:var(--brown); min-width:70px;">2:00PM</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600;" id="mE1">Mapillai azhaippu</span>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <span style="font-size:0.78rem; font-weight:600; color:var(--brown); min-width:70px;">3:00PM</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600;" id="mE2">Engagement</span>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <span style="font-size:0.78rem; font-weight:600; color:var(--brown); min-width:70px;">6:30 PM</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600;" id="mE3">Reception</span>
+        </div>
+              <p style="font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--brown); margin-top:14px;" id="mSchedLabel">Wedding Events · 18 June</p>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <span style="font-size:0.78rem; font-weight:600; color:var(--brown); min-width:70px;">7:30 AM</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600;" id="mE4">Muhurtham ✦</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+      <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=M+CONVENTIONS+Chennai" target="_blank" id="mDirections">📍 Get Directions</a>
+    </div>
+    </div>
+    </div>
+
+    <div class="info-box">
+        <div class="info-box-label" id="mLblPostWed">Post wedding Reception</div>
+        <div class="info-box-value">21 June 2026</div>
+        <div class="info-box-sub" id="mRMDRecpSub">6:00 PM· Aishwaryam Mini Hall, Ramanathapuram</div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+      <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=Bheemas+Nalabagam+Ramanathapuram" target="_blank" id="RMDDirections">📍 Get Directions</a>
+     </div>
+    </div>
+
+    <p style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; margin-top:24px; opacity:0.7;" id="mFooter">Together with the Shivanandam &amp; Sethu Families</p>
+  </div>
+</div>
+
+<script>
+  /* ───── LANGUAGE ───── */
+  let lang = 'en';
+  const T = {
+    en: {
+      heroTitle: 'Ram <span class="heart-sep">❤</span> Ramya',
+      heroSub: 'A Celebration of Love',
+      heroPill: '17,18 JUNE 2026 · CHENNAI',
+      heroPill2: '21 JUNE 2026 · RAMANATHAPURAM',
+      viewInviteBtn: 'View Invitation',
+      scheduleBtn: 'See Schedule',
+      lblReception: 'Reception',    valReception: '17 June 2026',  subReception: 'Evening Celebration',
+      lblWedding: 'Wedding',        valWedding: '18 June 2026',    subWedding: 'Muhurtam 7:30 AM',
+      lblVenue: 'Venue',            valVenue: 'M Conventions',     subVenue: 'Chennai',
+      cardBlessing: '✦ With the Blessings of Our Families ✦',
+      cardNames: 'Ram<br>&amp; Ramya',
+      cardMessage: 'Together with our families, we cordially invite you to witness and celebrate the sacred union of our hearts as we embark on a lifetime of love and companionship.',
+      cardFamily: 'Together with the Shivanandam &amp; Sethu Families',
+      lblDate: 'Date',              infoDate: 'Thursday, 18 June 2026',  infoTime: 'Muhurtam at 7:30 AM',
+      lblVenue2: 'Venue',           infoVenue: 'M Weddings &amp; Conventions',  infoAddress: 'Chennai',
+      directionsLink: '📍 Get Directions',
+      lblRecp: 'Reception',         infoRecp: 'Wednesday, 17 June 2026',  infoRecpTime: 'Evening celebration with family &amp; friends',
+      schedEyebrow: 'Programme of Events', schedHeading: 'Wedding Schedule',
+      day1Badge: 'Day 1', day1Date: 'Wednesday, 17 June 2026 — Reception',
+      e1n1:'Mapillai azhaippu', e1d1:'is a traditional Tamil wedding ceremony where the groom and his family are warmly welcomed by the brides family at the wedding venue with music, aarti, and garlands. 💐✨',
+      e1n2:'Engagement',      e1d2:'The joyful celebration marking the beginning of our journey toward marriage. 💍❤️',
+      e1n3: 'Reception Ceremony',   e1d3: 'An evening of celebration, joy, and togetherness with family and friends. ✨',
+      e1n4:'Dinner',                 e1d4:'Grand feast with family &amp; friends',
+      day2Badge: 'Day 2', day2Date: 'Thursday, 18 June 2026 — Wedding',
+      e2n3:'Muhurtham ✦', e2d3:'The auspicious moment — tying of the thali',
+      e2n4:'Breakfast Reception', e2d4:'Traditional South Indian breakfast feast',
+
+      day3Badge: 'Day 3', day3Date: 'Sunday, 21 June 2026 — Post Wedding Reception',
+      e3n1: 'Reception Ceremony',   e3d1: 'An evening of celebration, joy, and togetherness with family and friends. ✨',
+      e3n2:'Dinner',                 e3d2:'Grand feast with family &amp; friends',
+      actionMsg: 'As time unfolds, we look forward to celebrating our forever with you.',
+      calendarBtn: '📅 Save the Date',
+      footNames: 'Ram Weds Ramya',
+      mBlessing: '✦ With the Blessings of Our Families ✦',
+      mNames: 'Ram &amp; Ramya',
+      mMessage: 'Together with our families, we cordially invite you to witness and celebrate the sacred union of our hearts as we embark on a lifetime of love and companionship.',
+      mLblRecp: 'Reception', mRecpSub: ' 6:30 PM Onwards · M Conventions, Chennai',
+      mLblPostWed: 'Post wedding Reception', mRMDRecpSub: ' 6:00 PM · Aishwaryam Mini Hall, Ramanathapuram',
+      mLblWed: 'Wedding Day', mWedSub: 'Muhurtam at 7:30 AM · M Conventions, Chennai',
+      mSchedLabel: 'Wedding Events · 18 June',
+      mSchedLabel1: 'Reception Ceremony· 17 June',
+      mE1: 'Mapillai azhaippu', mE2: 'Engagement', mE3: 'Reception Ceremony', mE4: 'Muhurtham ✦',
+      mDirections: '📍 Get Directions',
+      RMDDirections: '📍 Get Directions',
+      mFooter: 'Together with the Shivanandam &amp; Sethu Families',
+    },
+    ta: {
+      heroTitle: 'ராம் <span class="heart-sep">❤</span> ரம்யா',
+      heroSub: 'இன்று இணைந்து, என்றும் ஒன்றாக.',
+      heroPill: 'ஜூன் 17,18, 2026 · சென்னை',
+      heroPill2: 'ஜூன் 21, 2026 · இராமநாதபுரம்',
+      viewInviteBtn: 'அழைப்பிதழ் காண்க',
+      scheduleBtn: 'நிகழ்ச்சி அட்டவணை',
+      lblReception: 'வரவேற்பு', valReception: 'ஜூன் 17, 2026', subReception: 'மாலை நிகழ்வு',
+      lblWedding: 'திருமணம்',   valWedding:   'ஜூன் 18, 2026', subWedding: 'முகூர்த்தம் காலை 7:30',
+      lblVenue: 'இடம்',         valVenue: 'எம் கான்வென்ஷன்ஸ்', subVenue: 'சென்னை',
+      cardBlessing: '✦ குடும்பத்தினர் ஆசீர்வாதத்துடன் ✦',
+      cardNames: 'ராம்<br>&amp; ரம்யா',
+      cardMessage: 'இரு இதயங்களின், இரு குடும்பங்களின் திருமண கொண்டாட்டத்தில் இணைய உங்களை அன்புடன் அழைக்கிறோம்.',
+      cardFamily: 'சிவானந்தம் &amp; சேது குடும்பத்தினர் சார்பாக',
+      lblDate: 'தேதி',  infoDate: 'வியாழன், ஜூன் 18, 2026',  infoTime: 'முகூர்த்தம் காலை 7:30',
+      lblVenue2: 'இடம்', infoVenue: 'எம் வெடிங்ஸ் &amp; கான்வென்ஷன்ஸ்', infoAddress: 'சென்னை',
+      directionsLink: '📍 வழி காண்க',
+      lblRecp: 'வரவேற்பு', infoRecp: 'புதன், ஜூன் 17, 2026', infoRecpTime: 'மாலை குடும்ப கொண்டாட்டம்',
+      schedEyebrow: 'நிகழ்ச்சி விவரம்', schedHeading: 'திருமண அட்டவணை',
+      day1Badge: 'நாள் 1', day1Date: 'புதன், ஜூன் 17, 2026 — வரவேற்பு',
+      e1n1:'மாப்பிள்ளை அழைப்பு', e1d1:'',
+      e1n2: 'நிச்சயதார்த்தம்',   e1d2:'',
+      e1n3:'வரவேற்பு விழா',    e1d3:'',
+      e1n4:'இரவு விருந்து',     e1d4:'',
+      day2Badge: 'நாள் 2', day2Date: 'வியாழன், ஜூன் 18, 2026 — திருமணம்',
+      e2n3:'முகூர்த்தம் ✦',  e2d3:'திருமங்கல்யம் சூட்டும் நேரம்',
+      e2n4:'காலை சிற்றுண்டி', e2d4:'தமிழ் பாரம்பரிய காலை விருந்து',
+      day3Badge: 'நாள் 3', day3Date: 'ஞாயிற்றுக்கிழமை, ஜூன் 21, 2026 — வரவேற்பு',
+      e3n1:'வரவேற்பு விழா',    e3d1:'',
+      e3n2:'இரவு விருந்து',     e3d2:'',
+      actionMsg: 'காலம் கனிய, எங்கள் வாழ்நாள் பயணத்தின் தொடக்கத்தை உங்களுடன் கொண்டாட ஆவலுடன் காத்திருக்கிறோம். ❤️',
+      whatsappBtn: '💬 WhatsApp-ல் பதிலளிக்க',
+      calendarBtn: '📅 நாளைப் பதிவிடுக',
+      footNames: 'ராம் — ரம்யா இணையும் நாள்',
+      mBlessing: '✦ குடும்பத்தினர் ஆசீர்வாதத்துடன் ✦',
+      mNames: 'ராம் &amp; ரம்யா',
+      mMessage: 'இரு இதயங்களின் திருமண கொண்டாட்டத்தில் இணைய உங்களை அன்புடன் அழைக்கிறோம்.',
+      mLblRecp: 'வரவேற்பு', mRecpSub: 'மாலை 6:30 முதல் · எம் கான்வென்ஷன்ஸ், சென்னை',
+      mLblPostWed: 'வரவேற்பு', mRMDRecpSub: 'மாலை 6:00 முதல் · ஐஸ்வர்யம் மினி ஹால், இராமநாதபுரம்',
+      mLblWed: 'திருமண நாள்', mWedSub: 'முகூர்த்தம் காலை 7:30 · எம் கான்வென்ஷன்ஸ், சென்னை',
+      mSchedLabel: 'திருமண நிகழ்ச்சிகள் · ஜூன் 18',
+      mSchedLabel1: 'வரவேற்பு விழா · ஜூன் 17',
+      mE1: 'மாப்பிள்ளை அழைப்பு', mE2: 'நிச்சயதார்த்தம்', mE3: 'வரவேற்பு விழா', mE4: 'முகூர்த்தம் ✦',
+      mDirections: '📍 வழி காண்க', 
+      RMDDirections: '📍 வழி காண்க',
+      mFooter: 'சிவானந்தம் &amp; சேது குடும்பத்தினர் சார்பாக',
+    }
+  };
+
+  function applyLang(l) {
+    const t = T[l];
+    for (const [id, val] of Object.entries(t)) {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = val;
+    }
+    document.getElementById('langToggle').classList.toggle('tamil', l === 'ta');
+  }
+
+  function switchLang() {
+    lang = lang === 'en' ? 'ta' : 'en';
+    applyLang(lang);
+  }
+
+  applyLang('en');
+  
+  document.addEventListener('click', function () {
+    const music = document.getElementById('bgMusic');
+    music.play();
+}, { once: true });
+
+// -----------updateCountdown---------
+  function tick() {
+  const diff = new Date('2026-06-18T07:35:00') - new Date();
+  if (diff <= 0) {
+    ['wDays','wHours','wMins','wSecs'].forEach(id => document.getElementById(id).textContent = '00');
+    document.getElementById('lblWeddingCount').textContent = '🎉 The Big Day is Here!';
+    return;
+  }
+  document.getElementById('wDays').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
+  document.getElementById('wHours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+  document.getElementById('wMins').textContent  = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+  document.getElementById('wSecs').textContent  = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+}
+tick();
+setInterval(tick, 1000);
+
+  /* ───── MODAL ───── */
+  function openModal() {
+    document.getElementById('inviteModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('inviteModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('inviteModal')) closeModal();
+  }
+
+  /* ───── SCROLL ───── */
+  function scrollToSchedule() {
+    document.getElementById('scheduleSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ───── CALENDAR ───── */
+  function addToCalendar() {
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Ram Ramya Wedding//EN',
+      'BEGIN:VEVENT',
+      'DTSTART:20260618T023000Z',
+      'DTEND:20260618T063000Z',
+      'SUMMARY:Ram Weds Ramya ❤',
+      'DESCRIPTION:Muhurtam at 7:30 AM. M Weddings & Conventions, Chennai.',
+      'LOCATION:M Weddings & Conventions, Chennai',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Ram_Ramya_Wedding.ics';
+    link.click();
+  }
+
+  /* ───── SCROLL REVEAL ───── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* ───── FLOWER PETALS ───── */
+  const canvas = document.getElementById('petalCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const PETAL_COLORS = ['#f5b8b8','#f5c6a0','#f0a8c0','#e8c4d8','#f5d6a1','#ffb7c5'];
+
+  class Petal {
+    constructor() { this.reset(true); }
+    reset(init) {
+      this.x = Math.random() * W;
+      this.y = init ? Math.random() * H : -30;
+      this.r = 5 + Math.random() * 8;
+      this.speed = 0.6 + Math.random() * 1.1;
+      this.drift = (Math.random() - 0.5) * 0.6;
+      this.rot = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.04;
+      this.color = PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)];
+      this.alpha = 0.55 + Math.random() * 0.35;
+    }
+    update() {
+      this.y += this.speed;
+      this.x += this.drift + Math.sin(this.y * 0.018) * 0.5;
+      this.rot += this.rotSpeed;
+      if (this.y > H + 30) this.reset(false);
+    }
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rot);
+      ctx.globalAlpha = this.alpha;
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, this.r, this.r * 0.55, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  const petals = Array.from({ length: 38 }, () => new Petal());
+
+  function animatePetals() {
+    ctx.clearRect(0, 0, W, H);
+    petals.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animatePetals);
+  }
+  animatePetals();
+
+  
+</script>
+</body>
+</html>
